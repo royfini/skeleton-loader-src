@@ -6,56 +6,45 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface RfCountries {
+    }
+    interface RfSkeleton {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLRfCountriesElement extends Components.RfCountries, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLRfCountriesElement: {
+        prototype: HTMLRfCountriesElement;
+        new (): HTMLRfCountriesElement;
+    };
+    interface HTMLRfSkeletonElement extends Components.RfSkeleton, HTMLStencilElement {
+    }
+    var HTMLRfSkeletonElement: {
+        prototype: HTMLRfSkeletonElement;
+        new (): HTMLRfSkeletonElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "rf-countries": HTMLRfCountriesElement;
+        "rf-skeleton": HTMLRfSkeletonElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface RfCountries {
+    }
+    interface RfSkeleton {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "rf-countries": RfCountries;
+        "rf-skeleton": RfSkeleton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "rf-countries": LocalJSX.RfCountries & JSXBase.HTMLAttributes<HTMLRfCountriesElement>;
+            "rf-skeleton": LocalJSX.RfSkeleton & JSXBase.HTMLAttributes<HTMLRfSkeletonElement>;
         }
     }
 }
